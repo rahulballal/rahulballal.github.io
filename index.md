@@ -19,6 +19,10 @@
 
 ### Software Developer - Consultant (Melbourne, Australia) _Sept 2018 - Present_
 
+- TBD
+
+### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
+
 Building a financial advice platform for the Australian market.
 - GraphQL API using AWS AppSync and AWS Lambda
 - DynamoDB for data persistence
@@ -26,21 +30,13 @@ Building a financial advice platform for the Australian market.
 - Styling the components using emotion.sh ( CSS-in-JS)
 - Setting everything up in AWS using Serverless and CloudFormation
 
-### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
+### Senior Engineer - [Domain.com](https://domain.com.au) (Sydney, Australia) April 2017 - March 2018_
 
 Building next-gen applications for Domain.com.au with
 - Node.js (Express, React.js)
 - Amazon SQS for messaging
 - Amazon SNS and Cloudwatch for notifications and metrics
 - Hashicorp Nomad and Jenkins Pipelines to deliver apps to AWS Cloud
-
-### Senior Engineer - [Domain.com](https://domain.com.au) (Sydney, Australia) April 2017 - March 2018_
-
-- Using Nodejs/Express with Swagger to build self documenting RESTful API
-- Continuous Delivery pipeline using Jenkins and Ansible.
-- Contributed on front end projects that used React stack.
-- Mentoring developers less experienced in different areas.
-- Learning the business and technical things from the more experienced
 
 ### Principal Engineer - [Wiredrive](https://wiredrive.com) (Los Angeles, USA) _March 2016 - March 2017_
 
