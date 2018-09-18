@@ -1,6 +1,8 @@
 #### Contact
 
+Current Location: ~India~, ~California, USA~, ~Sydney-AU~, ~Melbourne-AU~
 Email: rahulballal@gmail.com
+LinkedIn: [https://www.linkedin.com/in/meet-rahul-ballal/](https://www.linkedin.com/in/meet-rahul-ballal/)
 
 ## Primary Skills
 
@@ -14,13 +16,13 @@ Email: rahulballal@gmail.com
 
 ## Professional Experience
 
-### Software Developer - Consultant (Melbourne, Australia)
+### Software Developer - Consultant (Melbourne, Australia) ~Sept 2018 - Present~
 
-### Senior Engineer - [Shroogal Pty Ltd.](shroogal.com.au) (Melbourne, Australia)
+### Senior Engineer - [Shroogal Pty Ltd.](shroogal.com.au) (Melbourne, Australia) ~March 2018 - Sept 2018~
 
-### Senior Engineer - [Domain.com](domain.com.au) (Sydney, Australia)
+### Senior Engineer - [Domain.com](domain.com.au) (Sydney, Australia) ~March 2017 - March 2018~
 
-### Principal Engineer - [Wiredrive](wiredrive.com) (Los Angeles, USA)
+### Principal Engineer - [Wiredrive](wiredrive.com) (Los Angeles, USA) ~~
 
 ### Principal Engineer - [Corenerstone OnDemand](cornerstoneondemand.com) (Los Angeles, USA)
 
@@ -47,5 +49,3 @@ Email: rahulballal@gmail.com
     - Published paper with IEEE [Extending UML for Aspect Oriented Software Modeling](https://ieeexplore.ieee.org/document/5170367/)
 
   - Bachelor of Science in Computer Technology [Nagpur University, India](http://www.nagpuruniversity.org/rtmnu/home/)
-
-## Accomplishment
