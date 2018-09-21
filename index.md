@@ -1,14 +1,13 @@
 #### Contact
 
-- Current Location: Melbourne, Australia
-- Email: rahulballal@gmail.com
+- Location: Melbourne, Australia
 - LinkedIn: [https://www.linkedin.com/in/meet-rahul-ballal/](https://www.linkedin.com/in/meet-rahul-ballal/)
 
 ## Primary Skills
 
   node.js, RESTful APIs, GraphQL APIs, React.js, Continuous delivery,
   DynamoDB, S3, SQS, SNS, CloudFormation, Redis, Express.js, Docker, MongoDB, Jest,
-  CircleCI
+  CircleCI, gRPC
 
 ## Secondary Skills
 
@@ -19,7 +18,7 @@
 
 ### Software Developer - Consultant (Melbourne, Australia) _Sept 2018 - Present_
 
-- TBD
+-
 
 ### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
 
