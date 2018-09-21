@@ -7,7 +7,7 @@
 
   node.js, RESTful APIs, GraphQL APIs, React.js, Continuous delivery,
   DynamoDB, S3, SQS, SNS, CloudFormation, Redis, Express.js, Docker, MongoDB, Jest,
-  CircleCI, gRPC
+  CircleCI, gRPC, git
 
 ## Secondary Skills
 
@@ -107,14 +107,14 @@ Work on breaking the monolith into a set of services.
 - Developed a approval workflow solution using WF and WCF
 - Collected requirements as user stories and implemented Agile practices.
 
-### Programmer Analyst - [First American Corp](https://firstam.com) _2006 - 2008_
+### Programmer Analyst - [First American Corp](https://firstam.com) (California, USA) _2006 - 2008_
 
 - Converted the ASP 3.0 based CRM system to ASP.net 2.0
 - Implemented new billing and invoice engine in C#
 - Was also involved in requirement analysis
 
 
-### Intern - [Profit Concepts](http://www.profitconcepts.com/) _2006_
+### Intern - [Profit Concepts](http://www.profitconcepts.com/) (California, USA) _2006_
 
 - Performed Sharepoint site development and maintenance.
 - Network diagnosis and installation of Oracle Applications
