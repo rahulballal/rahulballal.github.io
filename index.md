@@ -16,7 +16,7 @@
 
 ## Professional Experience
 
-### Software Developer - Consultant (Melbourne, Australia) _Sept 2018 - Present_
+### Software Developer - Consultant (Melbourne, Australia) _Current_
 
 -
 
