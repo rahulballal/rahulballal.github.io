@@ -20,6 +20,7 @@
 
 - Graphql API using Apollo Server
 - Typescript
+- Docker container deployments on Heroku using CircleCI
 
 ### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
 
