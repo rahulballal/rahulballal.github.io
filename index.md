@@ -18,7 +18,8 @@
 
 ### Software Developer - Consultant (Melbourne, Australia) _Current_
 
--
+- Graphql API using Apollo Server
+- Typescript
 
 ### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
 
