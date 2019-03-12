@@ -20,6 +20,7 @@
 
 - Graphql API using Apollo Server
 - Typescript
+- Use TypeORM for ORM and DB migration needs
 - Docker container deployments on Heroku using CircleCI
 
 ### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
@@ -135,3 +136,8 @@ Work on breaking the monolith into a set of services.
 
   - Bachelor of Science in Computer Technology [Nagpur University, India](http://www.nagpuruniversity.org/rtmnu/home/)
     - Graduated in 2004
+    -
+
+## Presentations
+
+  - [GraphQL Notes](./assets/Graphql_Notes_120319.pdf)
