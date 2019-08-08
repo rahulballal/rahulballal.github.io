@@ -1,12 +1,22 @@
-import React from 'react';
-import PersonalCard from './components/personal-card';
+import React from 'react'
+
+import content from './content'
+
+import Layout from './components/layout'
+import Hero from './components/hero'
 
 function App() {
-  return (
-    <div className="container mx-auto px-10">
-      <PersonalCard/>
-    </div>
-  );
+  const heroNode = (
+    <Hero
+      email={content.personal.email}
+      githubUrl={content.personal.github}
+      linkedInUrl={content.personal.linkedIn}
+      location={content.personal.location}
+      twitterUrl={content.personal.twitter}
+    />
+  )
+
+  return <Layout heroNode={heroNode} />
 }
 
-export default App;
+export default App
