@@ -6,11 +6,13 @@ import Contact from './contact'
 
 const HeroTemplate = ({ faceNode, locationNode, contactNode }) => (
   <div className="flex-column">
-    <div className="object-center">
+    <div>
       {faceNode && faceNode}
     </div>
     <div className="flex-row justify-between">
       {locationNode && locationNode}
+    </div>
+    <div>
       {contactNode && contactNode}
     </div>
   </div>
