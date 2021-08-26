@@ -6,22 +6,43 @@
 ## Primary Skills
 
   node.js, RESTful APIs, GraphQL APIs, React.js, Continuous delivery,
-  DynamoDB, S3, SQS, SNS, CloudFormation, Redis, Express.js, Docker, MongoDB, Jest,
-  CircleCI, gRPC, git
+  DynamoDB, S3, SQS, SNS, CloudFormation, Redis, Docker, MongoDB, Jest,
+  CircleCI, gRPC, git, leadership, mentoring, XP/Scrum Agile practices
 
 ## Secondary Skills
 
-  .net Framework, C#, ASP.net MVC, SQL Server, MySQL, Python, Ruby, ECS, Kubernetes,
-  Ansible, Jenkins, Bash
+  .net Framework, C#, F#, SQL Server, MySQL, Python, Ruby, GCP, Kubernetes,
+  Ansible, Bash, AWS
 
 ## Professional Experience
 
-### Software Developer - Consultant (Melbourne, Australia) _Current_
+### Senior Principal Engineer - [Persuit](https://persuit.com) _August 2019 - Present_
 
+- Played a key role in increasing the release velocity from once a month to once every 2 weeks by streamlining all agile practices and better cross functional alignment
+- Established the first version of continuous delivery pipeline
+- Own multiple product initiatives thru to successful delivery by implementing a metrics based approach
+- Set and started executing the roadmap for technical evolution of the platform
+- Re-architected the ETL and analysis pipelines using Python/mongoengine/sql alchemy for better observability and ease of deployment
+- Actively building and maintaining features using Graphql and React
+- Defined work in the form of JIRA epics/stories/tasks
+- Extensive pair programming
+- Mentoring team members
+- Hiring new team members
+- Educate team on ways of working in a Remote setup.
+- Presented multiple technical talks on varying topics including Functional Programming/Typescript/ Graphql / Google Cloud Messaging systems
+
+
+### Lead Software Engineer - Consultant via DiUS (Melbourne, Australia) _Sept 2018 - August 2019_
+
+- Acted as lead engineer at 2 client assignments
+- Acted as a thought leader while working with key stakeholders for managing requirements and expectations
+- Lead a team of 5 engineers to meet client expecations
 - Graphql API using Apollo Server
-- Typescript
+- Implemented Graphql backend and react front end using Typescript
 - Use TypeORM for ORM and DB migration needs
 - Docker container deployments on Heroku using CircleCI
+- Integrated with contentful Graphql API for pulling in data from headless CRM
+- Deployed application server using AWS Fargate
 
 ### Senior Engineer - [Shroogal Pty Ltd.](https://shroogal.com.au) (Melbourne, Australia) _March 2018 - Sept 2018_
 
