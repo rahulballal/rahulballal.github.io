@@ -153,11 +153,10 @@ Work on breaking the monolith into a set of services.
   - Master of Science in Computer Science [California State University at Long Beach](csulb.edu)
     - Graduated in 2008
     - GPA 3.6/4
-    - Published paper with IEEE [Extending UML for Aspect Oriented Software Modeling](https://ieeexplore.ieee.org/document/5170367/)
+    - Published IEEE research paper [Extending UML for Aspect Oriented Software Modeling](https://ieeexplore.ieee.org/document/5170367/)
 
   - Bachelor of Science in Computer Technology [Nagpur University, India](http://www.nagpuruniversity.org/rtmnu/home/)
     - Graduated in 2004
-    -
 
 ## Presentations
 
