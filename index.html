@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Ballal - Engineering Leadership</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #ffffff;
+        }
+
+        /* Accessible color palette */
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --gray-900: #1a202c;
+            --gray-700: #2d3748;
+            --gray-600: #4a5568;
+            --gray-500: #718096;
+            --gray-100: #f7fafc;
+            --gray-50: #fafafa;
+            --white: #ffffff;
+            --accent-green: #059669;
+            --light-green: #d1fae5;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--light-blue);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.25);
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Personal info grid */
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .personal-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .personal-info-label {
+            font-weight: 600;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .personal-info-value {
+            color: var(--gray-900);
+            font-weight: 500;
+        }
+
+        /* Links */
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .skill-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .skill-list li {
+            background-color: var(--white);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Employment history */
+        .job {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .job-header {
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .company {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .location-date {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .job-responsibilities {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .job-responsibilities li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--gray-700);
+        }
+
+        .job-responsibilities li::before {
+            content: "•";
+            color: var(--accent-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Languages */
+        .languages-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .languages-list li {
+            background-color: var(--light-green);
+            color: var(--accent-green);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Education and Certifications */
+        .education-item, .certification-item {
+            background-color: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .degree {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .institution {
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .date {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* Sticky Navigation Bar */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--light-blue);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.04);
+            padding: 0.25rem 0;
+        }
+        .sticky-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0.5rem 0;
+        }
+        .sticky-nav a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .sticky-nav a:hover, .sticky-nav a:focus {
+            background: var(--light-blue);
+            color: var(--dark-blue);
+            outline: none;
+        }
+        .sticky-nav .social-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .sticky-nav .social-links a {
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .sticky-nav .social-links a:hover {
+            transform: scale(1.1);
+            background: var(--light-blue);
+        }
+        .sticky-nav .social-links svg {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .sticky-nav ul {
+                gap: 0.75rem;
+                font-size: 0.95rem;
+            }
+            .sticky-nav a {
+                font-size: 0.95rem;
+                padding: 0.5rem 0.5rem;
+            }
+            .sticky-nav .social-links {
+                gap: 0.25rem;
+            }
+            .sticky-nav .social-links a {
+                padding: 0.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .sticky-nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .sticky-nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.4rem;
+            }
+            .sticky-nav .social-links {
+                gap: 0.25rem;
+            }
+            .sticky-nav .social-links a {
+                padding: 0.35rem;
+            }
+            .sticky-nav .social-links svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Account for sticky nav height */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .personal-info {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+
+            .job {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .header {
+                margin-bottom: 1rem;
+                gap: 0.75rem;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .languages-list {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+
+            .job {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--gray-700);
+                text-decoration: none;
+            }
+        }
+
+        /* Custom: Remove inline styles from podcast/education featured episodes */
+        .featured-episodes {
+            margin-top: 1rem;
+        }
+        .featured-episodes h5 {
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+        }
+        .featured-episodes ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .featured-episodes li {
+            margin-bottom: 0.5rem;
+        }
+        .featured-episodes span {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#employment">Employment</a></li>
+            <li><a href="#podcasts">Podcasts</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li class="social-links">
+                <a href="https://www.linkedin.com/in/meet-rahul-ballal/" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/rahulballal" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header class="header">
+            <img src="/profile-photo.jpeg" alt="Rahul Ballal - Profile Photo" class="profile-photo">
+            <div class="header-text">
+                <h1>Rahul Ballal</h1>
+                <h2>Software Engineering Leader</h2>
+            </div>
+        </header>
+
+        <section id="about">
+            <h3>About</h3>
+            <p>
+                Experienced software professional and engineering leader based in Melbourne, Australia. As an Australian citizen, I bring a global perspective and a passion for driving technological advancements. I have consistently demonstrated my ability to enhance team performance by establishing best practices and encouraging a mindset of continuous improvement. My leadership in cross-functional collaborations and strategic planning has empowered organizations to achieve their software development goals swiftly and effectively across a variety of business domains.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h3>Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Leadership</h4>
+                    <ul class="skill-list">
+                        <li>Cross-functional Team Leadership</li>
+                        <li>Mentoring</li>
+                        <li>Technology Roadmapping</li>
+                        <li>Remote first software leadership</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Technical</h4>
+                    <ul class="skill-list">
+                        <li>Software Design</li>
+                        <li>Agile Methodologies</li>
+                        <li>Amazon Web Services (AWS)</li>
+                        <li>Node.js</li>
+                        <li>REST APIs</li>
+                        <li>GraphQL</li>
+                        <li>Microservices</li>
+                        <li>TypeScript</li>
+                        <li>React.js</li>
+                        <li>Docker</li>
+                        <li>Go</li>
+                        <li>JSON RPC</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h3>Languages</h3>
+            <ul class="languages-list">
+                <li>English</li>
+                <li>Hindi</li>
+                <li>Spanish (Beginner Level)</li>
+            </ul>
+        </section>
+
+        <section id="employment">
+            <h3>Employment History</h3>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Engineering Lead</div>
+                    <div class="company">Pepperstone</div>
+                    <div class="location-date">Melbourne, Victoria, Australia • Mar 2024 - Present</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Founding member and engineering leader of the "Partnerships" value stream</li>
+                    <li>Established ways of working and patterns and practices for the initial team</li>
+                    <li>Responsible for creating an hyper collaborative environment within the value stream across different business verticals</li>
+                    <li>Lead the setup of a polyglot monorepo</li>
+                    <li>Lead the build of CI/Continuous Delivery pipeline</li>
+                    <li>Building a culture of ownership and accountability with a focus on continuous improvement</li>
+                    <li>Delivered MVP for the value stream within 6 months of joining</li>
+                    <li>Showcased progress with fortnightly demonstration of the progress to ensure the stakeholders are up to date with the progress and feel confident about release</li>
+                    <li>Hands on coding and active code reviews for infrastructure (Terraform), HTTP apis (Golang), Frontend (React) and background workers (Golang, Nodejs)</li>
+                    <li>Provided leadership in building an AI driven translation tool that builds on top of React i18n conventions</li>
+                    <li>Led the interviewing process revamp and hiring for new squads in Asia region</li>
+                    <li>Personally presented multiple times in the company's architecture review forum and empowered team members to present ideas for review</li>
+                    <li>On-call roster management and on-call support</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Staff Engineer</div>
+                    <div class="company">SEEK</div>
+                    <div class="location-date">Melbourne, Victoria, Australia • Sep 2022 - Mar 2024</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Responsible and accountable for the engineering roadmap for the Job Posting product domain</li>
+                    <li>Took ownership of the product domain's Graphql Subgraph. All graphql resolvers were made typesafe to improve the confidence in the code and full testability via refactoring</li>
+                    <li>Work alongside Senior Staff Engineers to ensure architectural alignment</li>
+                    <li>Oversaw some key operations during the company wide initiative of merging data and services across multiple regions and acquisitions like jobsdb in thailand. This included planning and hands on leadership during rollouts</li>
+                    <li>Identified areas of the application which were hard to support and add features to. Executed targeted refactoring to reduce error rates and/or targeting addition of monitoring to help the on-call personnel swift resolution of production issues</li>
+                    <li>Provided SEEK wide new hire training in Graphql for a batch of 10+ graduate engineers. Also, designed the coursework</li>
+                    <li>Founding memeber of the SEEK Bytes Engineering Podcast. A podcast that covers a variety of technical topics and aim to give engineers a better visibility into enterprise software</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Principal Engineer</div>
+                    <div class="company">PERSUIT™</div>
+                    <div class="location-date">Melbourne, Australia • Aug 2019 - Sep 2022</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Built the first version of continuous delivery pipeline</li>
+                    <li>Setup and configured NewRelic for better observability into the system</li>
+                    <li>Helped define and execute the technical roadmap to scale for people and user load</li>
+                    <li>Actively building and maintaining features using Graphql and React</li>
+                    <li>Agile evangelism and coaching across squads</li>
+                    <li>Extensive pair programming</li>
+                    <li>Mentoring team members</li>
+                    <li>Interviewing and hiring new team members</li>
+                    <li>Educate team on ways of working in a Remote setup</li>
+                    <li>Presented multiple technical talks on varying topics including Functional Programming/Typescript/ Graphql / Google Cloud Messaging systems</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Lead Software Engineer</div>
+                    <div class="company">DiUS</div>
+                    <div class="location-date">Melbourne, Australia • Oct 2018 - Aug 2019</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Notable work done for some clients: Backend GraphQL services written in TypeScript and Nodejs. PostgreSQL as databse with access layer written using TypeORM</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Senior Software Engineer</div>
+                    <div class="company">Shroogal</div>
+                    <div class="location-date">Melbourne, Australia • Mar 2018 - Oct 2018</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Building a financial advice platform for the Australian market</li>
+                    <li>GraphQL API using AWS AppSync and AWS Lambda</li>
+                    <li>DynamoDB for data persistence</li>
+                    <li>Using Reactjs and Nextjs for building the front end</li>
+                    <li>Styling the components using emotion.sh (CSS-in-JS)</li>
+                    <li>Setting everything up in AWS using Serverless and CloudFormation</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Senior node.js Engineer</div>
+                    <div class="company">Domain</div>
+                    <div class="location-date">Sydney, New South Wales, Australia • Apr 2017 - Mar 2018</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Building next-gen applications for Domain.com.au with Node.js (Express, React.js)</li>
+                    <li>Amazon SQS for messaging</li>
+                    <li>Amazon SNS and Cloudwatch for notifications and metrics</li>
+                    <li>Hashicorp Nomad and Jenkins Pipelines to deliver apps to AWS Cloud</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Earlier Career Experience</div>
+                    <div class="company">Various Companies (2004-2017)</div>
+                    <div class="location-date">USA &amp; India &bull; Jan 2004 - Mar 2017</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li><strong>Principal Software Engineer</strong> at Wiredrive (Mar 2016 - Mar 2017) - Playa Vista, CA</li>
+                    <li><strong>Principal Software Engineer</strong> at Cornerstone OnDemand (Mar 2015 - Mar 2016) - Santa Monica, CA</li>
+                    <li><strong>Senior Software Engineer</strong> at Kareo (Jun 2013 - Mar 2015) - Irvine, CA</li>
+                    <li><strong>Senior Software Development Engineer</strong> at NEOGOV (Mar 2012 - Jun 2013) - El Segundo, CA</li>
+                    <li><strong>Technical Lead</strong> at 3M (Apr 2011 - May 2012) - Austin, TX</li>
+                    <li><strong>Sr. Web Developer</strong> at Bank of America (Nov 2010 - Apr 2011) - Agoura Hills, CA</li>
+                    <li><strong>Lead Developer</strong> at 3M (Jan 2009 - Oct 2010) - Tucson, AZ</li>
+                    <li><strong>Senior Developer</strong> at Intel Corporation (Jan 2008 - Dec 2009) - Chandler, AZ</li>
+                    <li><strong>Programmer Analyst</strong> at First American Title (Jan 2006 - Dec 2008) - Santa Ana, CA</li>
+                    <li><strong>Intern</strong> at Profit Concepts International (Oct 2006 - Dec 2006) - Long Beach, CA</li>
+                    <li><strong>Entry Level Developer</strong> at Virinchi Solutions (Jan 2004 - Dec 2005) - Nagpur, India</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="podcasts">
+            <h3>Podcasts &amp; Media</h3>
+            <div class="education-item">
+                <div class="degree">SEEK Bytes Engineering Podcast</div>
+                <div class="institution">Founding Member &amp; Host</div>
+                <div class="date">A podcast covering technical topics and providing engineers visibility into enterprise software</div>
+
+                <div class="featured-episodes">
+                    <h5>Featured Episodes:</h5>
+                    <ul>
+                        <li>
+                            <a href="https://open.spotify.com/episode/1lqsXHPdzV4ZJ9zjDm4oAz" target="_blank" rel="noopener noreferrer">
+                                Ep 16: Javascript Runtime Engines
+                            </a>
+                            <span>Discussion on Javascript engines vs runtimes, featuring Deno and Bun</span>
+                        </li>
+                        <li>
+                            <a href="https://open.spotify.com/episode/3xu301bmprJv6Uia3lZGmu" target="_blank" rel="noopener noreferrer">
+                                Ep 10: Pathways into Software Development
+                            </a>
+                            <span>Unique career pathways and learning strategies for software engineers</span>
+                        </li>
+                        <li>
+                            <a href="https://open.spotify.com/episode/1lqsXHPdzV4ZJ9zjDm4oAz" target="_blank" rel="noopener noreferrer">
+                                Ep 06: Testing, what is it good for?
+                            </a>
+                            <span>Exploring different testing methods and their practical applications</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">2 Doors Podcast</div>
+                <div class="institution">Guest Appearance</div>
+                <div class="date">Real conversations with Australia's top tech minds</div>
+
+                <div class="featured-episodes">
+                    <h5>Featured Episodes:</h5>
+                    <ul>
+                        <li>
+                            <a href="https://open.spotify.com/episode/3FdCULk1WUaFzZ4m8b8l6T" target="_blank" rel="noopener noreferrer">
+                                Ep2 - What does it take to be a senior engineer? Unlocking success, the future of technology
+                            </a>
+                            <span>Discussing the difference between America and Australia's tech markets and career mindsets</span>
+                        </li>
+                        <li>
+                            <a href="https://open.spotify.com/episode/2jdJsNmt5MuMsVsEtzmZgB" target="_blank" rel="noopener noreferrer">
+                                The Brutal Truth About Succeeding in Tech (From Australia's Top Engineers)
+                            </a>
+                            <span>Live panel discussion on overcoming imposter syndrome, communication skills, and thriving in tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h3>Education</h3>
+            <div class="education-item">
+                <div class="degree">Master of Science (MS), Computer Science</div>
+                <div class="institution">California State University, Long Beach</div>
+                <div class="date">USA • Aug 2005 - Dec 2008</div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h3>Certifications</h3>
+            <div class="certification-item">
+                <div class="degree">Apollo Graph Developer - Professional</div>
+                <div class="date">Dec 2022</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

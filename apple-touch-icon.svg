@@ -1,0 +1,14 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient-large" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="90" cy="90" r="85" fill="url(#gradient-large)" stroke="#1e40af" stroke-width="6"/>
+  
+  <!-- Letter R -->
+  <text x="90" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="100" font-weight="bold" text-anchor="middle" fill="white">R</text>
+</svg>
