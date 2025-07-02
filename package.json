@@ -4,16 +4,16 @@
   "description": "Rahul Ballal's professional resume website",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server . -p 3000 -o",
-    "dev": "npx http-server . -p 3000 -o -c-1",
+    "start": "http-server . -p 3000 -o",
+    "dev": "http-server . -p 3000 -o -c-1",
     "build": "npm run clean && npm run copy-files && npm run validate",
     "build:gh-pages": "npm run build && echo 'Ready for GitHub Pages deployment'",
     "clean": "rm -rf dist && mkdir -p dist",
     "copy-files": "cp index.html dist/ && cp *.svg dist/ && cp *.ico dist/ && cp *.webmanifest dist/ && if [ -f profile-photo.jpeg ]; then cp profile-photo.jpeg dist/; fi",
-    "serve": "npx http-server . -p 8080",
-    "serve:dist": "npx http-server dist -p 8080 -o",
-    "lint:html": "npx htmlhint index.html",
-    "validate": "npx html-validate index.html",
+    "serve": "http-server . -p 8080",
+    "serve:dist": "http-server dist -p 8080 -o",
+    "lint:html": "htmlhint index.html",
+    "validate": "html-validate index.html",
     "deploy-preview": "npm run build && npm run serve:dist"
   },
   "keywords": [
@@ -22,7 +22,7 @@
     "engineering-leadership",
     "rahul-ballal"
   ],
-  "author": "Rahul Ballal <rahul@example.com>",
+  "author": "Rahul Ballal <rahulballal@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "http-server": "^14.1.1",
@@ -36,9 +36,5 @@
   "bugs": {
     "url": "https://github.com/rahulballal/rahulballal.github.io/issues"
   },
-  "homepage": "https://rahulballal.github.io",
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
-  }
+  "homepage": "https://rahulballal.github.io"
 }
