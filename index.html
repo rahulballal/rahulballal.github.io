@@ -126,6 +126,28 @@
             gap: 0.25rem;
         }
 
+        /* Print-only contact information */
+        .print-contact {
+            display: none;
+        }
+
+        @media print {
+            .print-contact {
+                display: block !important;
+                margin: 0.5rem 0 0.5rem 0;
+                font-size: 1rem;
+                color: #222;
+            }
+            section {
+                margin-top: 0.4rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+            h3 {
+                margin-top: 0.4rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+        }
+
         /* Personal info grid */
         .personal-info {
             display: grid;
@@ -183,19 +205,40 @@
         }
 
         .skill-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .skill-list li {
-            background-color: var(--white);
-            padding: 0.5rem;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            color: var(--gray-700);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.35em 1em;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            margin: 0;
+            box-shadow: none;
+            border: 1px solid var(--primary-blue);
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        @media print {
+            .skill-list {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 0.5rem !important;
+            }
+            .skill-list li {
+                box-shadow: none !important;
+                background: #fff !important;
+                color: #222 !important;
+                border: 1px solid #888 !important;
+            }
         }
 
         /* Employment history */
@@ -208,24 +251,40 @@
         }
 
         .job-header {
-            margin-bottom: 1rem;
+            margin-bottom: 0.4rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.1rem;
+            align-items: start;
         }
 
         .job-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--gray-900);
+            grid-column: 1;
+        }
+
+        .job-dates {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: right;
+            grid-column: 2;
+            align-self: baseline;
         }
 
         .company {
             font-weight: 600;
             color: var(--primary-blue);
+            grid-column: 1;
         }
 
-        .location-date {
+        .location {
             color: var(--gray-600);
             font-size: 0.875rem;
-            margin-top: 0.25rem;
+            text-align: right;
+            grid-column: 2;
         }
 
         .job-responsibilities {
@@ -411,6 +470,15 @@
             .job {
                 padding: 1rem;
             }
+
+            .job-header {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .job-dates, .location {
+                text-align: left;
+            }
         }
 
         @media (max-width: 480px) {
@@ -440,24 +508,48 @@
 
         /* Print styles */
         @media print {
+            html, body, * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
             body {
                 font-size: 12px;
                 line-height: 1.4;
             }
 
+            .header {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            #employment {
+                break-before: avoid;
+                page-break-before: avoid;
+            }
             .container {
                 max-width: none;
                 padding: 0;
-            }
-
-            .job {
-                break-inside: avoid;
-                page-break-inside: avoid;
+                orphans: 4;
+                widows: 4;
             }
 
             a {
                 color: var(--gray-700);
                 text-decoration: none;
+            }
+
+            .sticky-nav {
+                display: none !important;
+            }
+            .profile-photo {
+                display: none !important;
+            }
+            .skill-list li {
+                box-shadow: none !important;
+                background: var(--white) !important;
+                color: var(--gray-700) !important;
+            }
+            #podcasts, #certifications, #languages {
+                display: none !important;
             }
         }
 
@@ -487,13 +579,13 @@
 <body>
     <nav class="sticky-nav">
         <ul>
-            <li><a href="#about">About</a></li>
+            <li><a href="#about">Summary</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#languages">Languages</a></li>
             <li><a href="#employment">Employment</a></li>
             <li><a href="#podcasts">Podcasts</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#languages">Languages</a></li>
             <li class="social-links">
                 <a href="https://www.linkedin.com/in/meet-rahul-ballal/" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -513,14 +605,25 @@
             <img src="/profile-photo.jpeg" alt="Rahul Ballal - Profile Photo" class="profile-photo">
             <div class="header-text">
                 <h1>Rahul Ballal</h1>
+                <p style="margin: 0; color: var(--gray-600); font-size: 1.1rem; font-weight: 500;">📍 Melbourne, Australia</p>
+                <div class="print-contact">
+                    Email: rahul.ballal@gmail.com
+                </div>
                 <h2>Software Engineering Leader</h2>
             </div>
         </header>
 
         <section id="about">
-            <h3>About</h3>
+            <h3>Summary</h3>
             <p>
-                Experienced software professional and engineering leader based in Melbourne, Australia. As an Australian citizen, I bring a global perspective and a passion for driving technological advancements. I have consistently demonstrated my ability to enhance team performance by establishing best practices and encouraging a mindset of continuous improvement. My leadership in cross-functional collaborations and strategic planning has empowered organizations to achieve their software development goals swiftly and effectively across a variety of business domains.
+                Experienced software professional with a strong foundation in
+engineering principles and a passion for driving technological
+advancements. I have consistently demonstrated my ability to enhance
+team performance by establishing best practices and encouraging a
+mindset of continuous improvement. My leadership in cross-functional
+collaborations and strategic planning has empowered organizations to
+achieve their software development goals swiftly and effectively in a
+variety of business domains.
             </p>
         </section>
 
@@ -556,23 +659,15 @@
             </div>
         </section>
 
-        <section id="languages">
-            <h3>Languages</h3>
-            <ul class="languages-list">
-                <li>English</li>
-                <li>Hindi</li>
-                <li>Spanish (Beginner Level)</li>
-            </ul>
-        </section>
-
         <section id="employment">
             <h3>Employment History</h3>
 
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Engineering Lead</div>
+                    <div class="job-dates">Mar 2024 - Present</div>
                     <div class="company">Pepperstone</div>
-                    <div class="location-date">Melbourne, Victoria, Australia • Mar 2024 - Present</div>
+                    <div class="location">Melbourne, Victoria, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Founding member and engineering leader of the "Partnerships" value stream</li>
@@ -594,8 +689,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Staff Engineer</div>
+                    <div class="job-dates">Sep 2022 - Mar 2024</div>
                     <div class="company">SEEK</div>
-                    <div class="location-date">Melbourne, Victoria, Australia • Sep 2022 - Mar 2024</div>
+                    <div class="location">Melbourne, Victoria, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Responsible and accountable for the engineering roadmap for the Job Posting product domain</li>
@@ -611,8 +707,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Principal Engineer</div>
+                    <div class="job-dates">Aug 2019 - Sep 2022</div>
                     <div class="company">PERSUIT™</div>
-                    <div class="location-date">Melbourne, Australia • Aug 2019 - Sep 2022</div>
+                    <div class="location">Melbourne, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Built the first version of continuous delivery pipeline</li>
@@ -631,8 +728,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Lead Software Engineer</div>
+                    <div class="job-dates">Oct 2018 - Aug 2019</div>
                     <div class="company">DiUS</div>
-                    <div class="location-date">Melbourne, Australia • Oct 2018 - Aug 2019</div>
+                    <div class="location">Melbourne, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Notable work done for some clients: Backend GraphQL services written in TypeScript and Nodejs. PostgreSQL as databse with access layer written using TypeORM</li>
@@ -642,8 +740,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Senior Software Engineer</div>
+                    <div class="job-dates">Mar 2018 - Oct 2018</div>
                     <div class="company">Shroogal</div>
-                    <div class="location-date">Melbourne, Australia • Mar 2018 - Oct 2018</div>
+                    <div class="location">Melbourne, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Building a financial advice platform for the Australian market</li>
@@ -658,8 +757,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Senior node.js Engineer</div>
+                    <div class="job-dates">Apr 2017 - Mar 2018</div>
                     <div class="company">Domain</div>
-                    <div class="location-date">Sydney, New South Wales, Australia • Apr 2017 - Mar 2018</div>
+                    <div class="location">Sydney, New South Wales, Australia</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li>Building next-gen applications for Domain.com.au with Node.js (Express, React.js)</li>
@@ -672,8 +772,9 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Earlier Career Experience</div>
+                    <div class="job-dates">Jan 2004 - Mar 2017</div>
                     <div class="company">Various Companies (2004-2017)</div>
-                    <div class="location-date">USA &amp; India &bull; Jan 2004 - Mar 2017</div>
+                    <div class="location">USA &amp; India</div>
                 </div>
                 <ul class="job-responsibilities">
                     <li><strong>Principal Software Engineer</strong> at Wiredrive (Mar 2016 - Mar 2017) - Playa Vista, CA</li>
@@ -763,6 +864,15 @@
                 <div class="degree">Apollo Graph Developer - Professional</div>
                 <div class="date">Dec 2022</div>
             </div>
+        </section>
+
+        <section id="languages">
+            <h3>Languages</h3>
+            <ul class="languages-list">
+                <li>English</li>
+                <li>Hindi</li>
+                <li>Spanish (Beginner Level)</li>
+            </ul>
         </section>
     </div>
 </body>
