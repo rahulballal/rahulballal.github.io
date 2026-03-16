@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= name %> - <%= title %></title>
+  <meta name="description" content="Resume of <%= name %> - engineering leadership, architecture, and technical expertise.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    :root { --primary: #1890ff; --primary-hover: #40a9ff; --primary-dark: #096dd9; --text-primary: #000000f0; --text-secondary: #0000008f; --border: #d9d9d9; --border-light: #f0f0f0; --bg-primary: #ffffff; --bg-secondary: #fafafa; --bg-tertiary: #f5f5f5; --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02); --shadow-md: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05); }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: var(--bg-secondary); color: var(--text-primary); font-size: 14px; line-height: 1.5715; }
+    .page { max-width: 1200px; margin: 0 auto; }
+    .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #ffffff; padding: 32px 24px; text-align: center; border-radius: 8px; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+    .hero-photo { width: 120px; height: 120px; margin: 0 auto 16px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.25); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero h1 { margin: 0 0 4px 0; font-size: 28px; font-weight: 500; letter-spacing: -0.5px; }
+    .hero h2 { margin: 0 0 12px 0; font-size: 16px; font-weight: 400; opacity: 0.95; border: none; padding: 0; }
+    .hero-meta { display: flex; flex-direction: row; gap: 16px; font-size: 13px; opacity: 0.9; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .hero-meta a { color: #ffffff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+    .hero-meta a:hover { opacity: 0.8; }
+    .hero-separator { opacity: 0.5; }
+    .content { display: grid; gap: 24px; }
+    .content-section { background: var(--bg-primary); padding: 24px; border-radius: 8px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); }
+    .content-section h2 { color: var(--primary); font-size: 18px; margin: 0 0 16px 0; padding-bottom: 0; border: none; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .section-icon { width: 20px; height: 20px; opacity: 0.8; stroke: var(--primary); }
+    .content-section h3 { color: var(--primary); font-size: 18px; margin: 16px 0 8px 0; font-weight: 600; }
+    .content-section h3:first-of-type { margin-top: 0; }
+    .content-section h4 { color: var(--text-primary); font-size: 16px; font-weight: 600; margin: 12px 0 8px 0; }
+    .content-section p { margin: 8px 0; line-height: 1.6; color: var(--text-secondary); }
+    .content-section ul { padding-left: 0; margin: 12px 0; list-style: none; }
+    .content-section li { margin: 8px 0; padding-left: 24px; position: relative; line-height: 1.6; color: var(--text-secondary); }
+    .content-section li:before { content: "◆"; position: absolute; left: 8px; color: var(--primary); font-size: 8px; top: 7px; }
+    .content-section strong { color: var(--text-primary); font-weight: 500; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .skill-tag { display: inline-block; padding: 4px 12px; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 4px; font-size: 13px; color: var(--text-secondary); }
+    .employment-item { border-left: 3px solid var(--primary); padding-left: 16px; margin-bottom: 16px; }
+    .employment-item:last-child { margin-bottom: 0; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--primary-hover); text-decoration: underline; }
+    @media (max-width: 768px) { body { padding: 16px; } .hero { padding: 32px 16px; margin-bottom: 16px; } .hero h1 { font-size: 28px; } .hero-photo { width: 120px; height: 120px; margin: 0 auto 16px; } .content { gap: 16px; } .content-section { padding: 16px; } .content-section h2 { font-size: 16px; margin-bottom: 12px; } }
+    @media (max-width: 480px) { body { padding: 12px; font-size: 13px; } .hero { padding: 24px 12px; margin-bottom: 12px; } .hero h1 { font-size: 24px; } .hero h2 { font-size: 14px; margin-bottom: 12px; } .hero-photo { width: 100px; height: 100px; margin: 0 auto 12px; } .content { gap: 12px; } .content-section { padding: 12px; } .content-section h2 { font-size: 15px; margin-bottom: 10px; } }
+    @media print { body { background: #ffffff; padding: 0.5in; } .hero { background: #ffffff; color: var(--text-primary); padding: 0 0 16px 0; text-align: left; border-radius: 0; box-shadow: none; border-bottom: 2px solid var(--border); margin-bottom: 16px; } .hero-photo { display: none; } .hero h1 { font-size: 24px; margin-bottom: 4px; } .hero h2 { margin: 0; font-size: 14px; } .content-section { page-break-inside: avoid; box-shadow: none; border: 1px solid var(--border); padding: 12px; } .employment-item { page-break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-photo"><img src="profile-photo.jpeg" alt="<%= name %>"></div>
+      <h1><%= name %></h1>
+      <h2><%= title %></h2>
+      <div class="hero-meta">
+        <% personalInfo.forEach((info, index) => { -%>
+          <span>
+            <strong><%= info.label %>:</strong>
+            <% if (info.link) { -%><a href="<%= info.link %>"><%= info.value %></a><% } else { -%><%= info.value %><% } -%>
+          </span>
+          <% if (index < personalInfo.length - 1) { -%><span class="hero-separator">•</span><% } -%>
+        <% }) -%>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content">
+      <% sections.filter(s => s.type !== 'simple' || s.content.trim()).forEach(section => { -%>
+        <div class="content-section">
+          <h2>
+            <i data-feather="<%= section.icon %>" class="section-icon"></i>
+            <%= section.title %>
+          </h2>
+
+          <% if (section.type === 'simple') { -%>
+<%- section.content.trim() %>
+          <% } else if (section.type === 'skills') { -%>
+            <% section.subsections.forEach(subsection => { -%>
+              <h4><%= subsection.title %></h4>
+              <div class="skill-tags">
+                <% subsection.items.forEach(skill => { -%>
+                  <div class="skill-tag"><%= skill %></div>
+                <% }) -%>
+              </div>
+            <% }) -%>
+
+          <% } else if (section.type === 'employment') { -%>
+            <% section.jobs.forEach(job => { -%>
+              <div class="employment-item">
+                <h4><%= job.title %></h4>
+                <p><strong><%= job.company %></strong> • <%= job.location %><br><em><%= job.dates %></em></p>
+                <% if (job.responsibilities && job.responsibilities.length > 0) { -%>
+                  <ul>
+                    <% job.responsibilities.forEach(resp => { -%>
+                      <li><%- resp %></li>
+                    <% }) -%>
+                  </ul>
+                <% } -%>
+              </div>
+            <% }) -%>
+
+          <% } else if (section.type === 'podcasts') { -%>
+            <% section.podcasts.forEach(podcast => { -%>
+              <h4><%= podcast.name %></h4>
+              <p><strong><%= podcast.role %></strong></p>
+              <p><%= podcast.description %></p>
+              <% if (podcast.episodes && podcast.episodes.length > 0) { -%>
+                <p><strong>Featured Episodes:</strong></p>
+                <ul>
+                  <% podcast.episodes.forEach(episode => { -%>
+                    <li><a href="<%= episode.link %>"><%= episode.title %></a> - <%= episode.description %></li>
+                  <% }) -%>
+                </ul>
+              <% } -%>
+            <% }) -%>
+
+          <% } else if (section.type === 'education') { -%>
+            <% section.items.forEach(item => { -%>
+              <h4><%= item.degree %></h4>
+              <p><strong><%= item.institution %></strong> • <%= item.location %><br><em><%= item.dates %></em></p>
+            <% }) -%>
+
+          <% } else if (section.type === 'certifications') { -%>
+            <ul>
+              <% section.items.forEach(item => { -%>
+                <li><strong><%= item.name %></strong> (<%= item.date %>)</li>
+              <% }) -%>
+            </ul>
+
+          <% } else if (section.type === 'languages') { -%>
+            <ul>
+              <% section.items.forEach(item => { -%>
+                <li><%= item %></li>
+              <% }) -%>
+            </ul>
+          <% } -%>
+        </div>
+      <% }) -%>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather Icons
+    feather.replace();
+  </script>
+</body>
+</html>

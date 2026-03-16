@@ -1,116 +1,120 @@
 # Rahul Ballal
-## Engineering Leadership
+## Engineering Leadership & Architecture
 
 ### Personal Information
 
 - **Name:** Rahul Ballal
-- **Location:** Melbourne
+- **Location:** Dallas, Texas, USA
 - **LinkedIn:** [linkedin.com/in/meet-rahul-ballal](https://linkedin.com/in/meet-rahul-ballal)
-- **Citizenship:** Australian Citizen
+- **Citizenship:** Australian Citizen (E3 Visa Work Authorization)
 
 ### About
 
-Experienced software professional with a strong foundation in engineering principles and a passion for driving technological advancements. I have consistently demonstrated my ability to enhance team performance by establishing best practices and encouraging a mindset of continuous improvement. My leadership in cross-functional collaborations and strategic planning has empowered organizations to achieve their software development goals swiftly and effectively in a variety of business domains.
+Engineering leader and architect with deep experience designing and scaling web platforms, leading cross-functional teams, and modernizing legacy systems across multiple domains. I combine hands-on technical leadership (architecture, coding, and code review) with long-term roadmap ownership, improving delivery velocity, reliability, and developer productivity. I am known for establishing engineering and architectural best practices, driving AI-native solutions, and aligning stakeholders around pragmatic, high-impact technical decisions.
 
 ### Skills
 
-#### Leadership
-- Cross-functional Team Leadership
-- Mentoring
-- Technology Roadmapping
-- Remote first software leadership
+#### Leadership & Architecture
+- Engineering Leadership & Org-Level Influence
+- Technical & Solution Architecture (Web, APIs, Microservices)
+- Cross-Functional Team Leadership
+- Technology Roadmapping & Platform Strategy
+- Technical Mentoring & Coaching
+- Architecture Forums & Design Reviews
+- Remote-First Software Leadership
 
 #### Technical
-- Software Design
+- AI-Native / Agentic Software Development
+- Software Design & Refactoring
 - Agile Methodologies
 - Amazon Web Services (AWS)
-- Node.js
-- REST APIs
-- GraphQL
-- Microservices
-- TypeScript
-- React.js
-- Docker
-- Go
-- JSON RPC
-
-### Languages
-- English
-- Several Indian Languages
-- Spanish
+- REST APIs, GraphQL, JSON-RPC
+- Microservices & Distributed Systems
+- Node.js, TypeScript, Go
+- React.js & Front-End Engineering
+- Docker & CI/CD
 
 ### Employment History
 
+#### Principal Engineer - Research and Development
+**Vizient Inc** • Melbourne, Victoria, Australia  
+*Feb 2026 - Present*
+
+#### Architect - Membership Business Domain
+**CBus** • Melbourne, Victoria, Australia  
+*Aug 2025 - Jan 2026*
+
+- Evaluated commercial and open source LLM models to improve marketing spend, leading the selection and implementation of a commercial offering over BYO and saving approximately 100k AUD.
+- Authored and presented multiple solution design papers in the architecture forum, driving cross-organization alignment on membership domain solutions.
+- Led a working group on AI-native software development, enabling automation of solution discovery, REST API testing, and browser testing.
+- Mentored a team of 5 engineers on enterprise architecture principles and delivery practices, improving delivery velocity and architectural consistency.
+
 #### Engineering Lead
 **Pepperstone** • Melbourne, Victoria, Australia  
-*Mar 2024 - Present*
+*Mar 2024 - Jul 2025*
 
-- Founding member and engineering leader of the "Partnerships" value stream
-- Established ways of working and patterns and practices for the initial team
-- Responsible for creating an hyper collaborative environment within the value stream across different business verticals
-- Lead the setup of a polyglot monorepo
-- Lead the build of CI/Continuous Delivery pipeline
-- Building a culture of ownership and accountability with a focus on continuous improvement
-- Delivered MVP for the value stream within 6 months of joining
-- Showcased progress with fortnightly demonstration of the progress to ensure the stakeholders are up to date with the progress and feel confident about release
-- Hands on coding and active code reviews for infrastructure (Terraform), HTTP apis (Golang), Frontend (React) and background workers (Golang, Nodejs)
-- Provided leadership in building an AI driven translation tool that builds on top of React i18n conventions
-- Led the interviewing process revamp and hiring for new squads in Asia region
-- Personally presented multiple times in the company's architecture review forum and empowered team members to present ideas for review
-- On-call roster management and on-call support
+- Founding member and engineering leader of the "Partnerships" value stream, responsible for defining the technical direction and delivery approach.
+- Established ways of working, patterns, and practices for the initial team, creating a clear architectural and process foundation for future squads.
+- Created and nurtured a highly collaborative environment across business verticals, improving stakeholder alignment and decision-making speed.
+- Led the setup of a polyglot monorepo and CI/continuous delivery pipeline, enabling consistent, automated delivery across services and applications.
+- Built a culture of ownership and accountability with a strong focus on continuous improvement and measurable outcomes.
+- Delivered the value stream MVP within 6 months of joining, providing early business value and validating the technical approach.
+- Regularly showcased progress through fortnightly demos to keep stakeholders informed, build confidence in the release plan, and surface early feedback.
+- Remained hands-on with coding and code reviews across infrastructure (Terraform), HTTP APIs (Golang), frontend (React), and background workers (Golang, Node.js).
+- Provided leadership for building an AI-driven translation tool on top of React i18n conventions, reducing manual localization effort.
+- Led interviewing process improvements and hiring for new squads in the Asia region, raising the technical bar for new hires.
+- Frequently represented the team in the company’s architecture review forum and empowered team members to present their designs for feedback.
+- Managed the on-call roster and contributed to on-call support, helping ensure operational reliability.
 
 #### Staff Engineer
 **SEEK** • Melbourne, Victoria, Australia  
 *Sep 2022 - Mar 2024*
 
-- Responsible and accountable for the engineering roadmap for the Job Posting product domain
-- Took ownership of the product domain's Graphql Subgraph. All graphql resolvers were made typesafe to improve the confidence in the code and full testability via refactoring
-- Work alongside Senior Staff Engineers to ensure architectural alignment
-- Oversaw some key operations during the company wide initiative of merging data and services across multiple regions and acquisitions like jobsdb in thailand. This included planning and hands on leadership during rollouts
-- Identified areas of the application which were hard to support and add features to. Executed targeted refactoring to reduce error rates and/or targeting addition of monitoring to help the on-call personnel swift resolution of production issues
-- Provided SEEK wide new hire training in Graphql for a batch of 10+ graduate engineers. Also, designed the coursework
-- Founding memeber of the SEEK Bytes Engineering Podcast. A podcast that covers a variety of technical topics and aim to give engineers a better visibility into enterprise software
+- Owned the engineering roadmap for the Job Posting product domain, aligning technical initiatives with product strategy and business outcomes.
+- Took end-to-end ownership of the domain's GraphQL subgraph; made all GraphQL resolvers type-safe to increase confidence in the codebase and enable full testability through refactoring.
+- Collaborated closely with Senior Staff Engineers to ensure architectural alignment across domains and regions.
+- Provided planning and hands-on leadership during a company-wide initiative to merge data and services across multiple regions and acquisitions (including jobsdb in Thailand), contributing to safer rollouts and reduced integration risk.
+- Identified parts of the application that were hard to support or extend and led targeted refactoring and observability improvements, reducing error rates and improving time to resolution for production issues.
+- Designed and delivered SEEK-wide new hire training in GraphQL for a cohort of 10+ graduate engineers, including developing the course content.
+- Co-founded the SEEK Bytes Engineering Podcast, providing engineers with visibility into enterprise software topics and helping to strengthen internal engineering culture.
 
 #### Principal Engineer
 **PERSUIT™** • Melbourne, Australia  
 *Aug 2019 - Sep 2022*
 
-- Built the first version of continuous delivery pipeline
-- Setup and configured NewRelic for better observability into the system
-- Helped define and execute the technical roadmap to scale for people and user load
-- Actively building and maintaining features using Graphql and React
-- Agile evangelism and coaching across squads
-- Extensive pair programming
-- Mentoring team members
-- Interviewing and hiring new team members
-- Educate team on ways of working in a Remote setup
-- Presented multiple technical talks on varying topics including Functional Programming/Typescript/ Graphql / Google Cloud Messaging systems
+- Built the first version of the continuous delivery pipeline, laying the foundation for more reliable, frequent releases.
+- Set up and configured New Relic for observability, enabling better insight into system performance and production issues.
+- Helped define and execute the technical roadmap to scale both the engineering team and the platform for increased user and data load.
+- Actively built and maintained product features using GraphQL and React, staying close to the code while leading architectural decisions.
+- Championed agile practices and coaching across squads, reinforcing iterative delivery and feedback loops.
+- Practiced extensive pair programming to raise code quality, improve knowledge sharing, and onboard engineers more quickly.
+- Mentored team members and led interviewing and hiring activities to grow a high-performing engineering team.
+- Guided the team on effective ways of working in a remote setup, including communication and collaboration practices.
+- Presented multiple technical talks on topics including Functional Programming, TypeScript, GraphQL, and Google Cloud messaging systems.
 
 #### Lead Software Engineer
 **DiUS** • Melbourne, Australia  
 *Oct 2018 - Aug 2019*
 
-- Notable work done for some clients: Backend GraphQL services written in TypeScript and Nodejs. PostgreSQL as databse with access layer written using TypeORM
+- Delivered backend GraphQL services for clients using TypeScript and Node.js, with PostgreSQL as the database and TypeORM for data access.
 
 #### Senior Software Engineer
 **Shroogal** • Melbourne, Australia  
 *Mar 2018 - Oct 2018*
 
-- Building a financial advice platform for the Australian market
-- GraphQL API using AWS AppSync and AWS Lambda
-- DynamoDB for data persistence
-- Using Reactjs and Nextjs for building the front end
-- Styling the components using emotion.sh (CSS-in-JS)
-- Setting everything up in AWS using Serverless and CloudFormation
+- Built a financial advice platform for the Australian market using a modern serverless and single-page application stack.
+- Implemented GraphQL APIs with AWS AppSync and AWS Lambda.
+- Used DynamoDB for data persistence.
+- Built the frontend using React.js and Next.js, with styling via emotion.sh (CSS-in-JS).
+- Provisioned infrastructure in AWS using Serverless Framework and CloudFormation.
 
-#### Senior node.js Engineer
+#### Senior Node.js Engineer
 **Domain** • Sydney, New South Wales, Australia  
 *Apr 2017 - Mar 2018*
 
-- Building next-gen applications for Domain.com.au with Node.js (Express, React.js)
-- Amazon SQS for messaging
-- Amazon SNS and Cloudwatch for notifications and metrics
-- Hashicorp Nomad and Jenkins Pipelines to deliver apps to AWS Cloud
+- Built next-generation applications for Domain.com.au using Node.js (Express, React.js).
+- Used Amazon SQS for messaging and Amazon SNS and CloudWatch for notifications and metrics.
+- Leveraged HashiCorp Nomad and Jenkins pipelines to deliver applications to AWS Cloud.
 
 #### Principal Software Engineer
 **Wiredrive** • Playa Vista  
@@ -128,19 +132,19 @@ Experienced software professional with a strong foundation in engineering princi
 **NEOGOV** • El Segundo, CA  
 *Mar 2012 - Jun 2013*
 
-#### Technical Lead
+#### Technical Lead - Contract
 **3M** • Austin, Texas Area  
 *Apr 2011 - May 2012*
 
-#### Sr. Web Developer
+#### Sr. Web Developer - Contract
 **Bank of America** • Agoura Hills, CA  
 *Nov 2010 - Apr 2011*
 
-#### Lead Developer
+#### Lead Developer - Contract
 **3M** • Tucson, Arizona Area  
 *Jan 2009 - Oct 2010*
 
-#### Senior Developer
+#### Senior Developer - Contract
 **Intel Corporation** • Chandler, AZ  
 *Jan 2008 - Dec 2009*
 
@@ -156,6 +160,27 @@ Experienced software professional with a strong foundation in engineering princi
 **Virinchi Solutions** • Nagpur Area, India  
 *Jan 2004 - Dec 2005*
 
+### Podcasts & Media
+
+#### SEEK Bytes Engineering Podcast
+**Founding Member & Host**
+
+A podcast covering technical topics and providing engineers visibility into enterprise software
+
+**Featured Episodes:**
+- [Ep 16: Javascript Runtime Engines](https://open.spotify.com/episode/1lqsXHPdzV4ZJ9zjDm4oAz) - Discussion on Javascript engines vs runtimes, featuring Deno and Bun
+- [Ep 10: Pathways into Software Development](https://open.spotify.com/episode/3xu301bmprJv6Uia3lZGmu) - Unique career pathways and learning strategies for software engineers
+- [Ep 06: Testing, what is it good for?](https://open.spotify.com/episode/1lqsXHPdzV4ZJ9zjDm4oAz) - Exploring different testing methods and their practical applications
+
+#### 2 Doors Podcast
+**Guest Appearance**
+
+Real conversations with Australia's top tech minds
+
+**Featured Episodes:**
+- [Ep2 - What does it take to be a senior engineer? Unlocking success, the future of technology](https://open.spotify.com/episode/3FdCULk1WUaFzZ4m8b8l6T) - Discussing the difference between America and Australia's tech markets and career mindsets
+- [The Brutal Truth About Succeeding in Tech (From Australia's Top Engineers)](https://open.spotify.com/episode/2jdJsNmt5MuMsVsEtzmZgB) - Live panel discussion on overcoming imposter syndrome, communication skills, and thriving in tech
+
 ### Education
 
 #### Master of Science (MS), Computer Science
@@ -165,3 +190,9 @@ Experienced software professional with a strong foundation in engineering princi
 ### Certifications
 
 - **Apollo Graph Developer - Professional** (Dec 2022)
+
+### Languages
+
+- English
+- Several Indian Languages
+- Spanish

@@ -105,6 +105,16 @@ npm run dev
 
 This will start a local server at `http://localhost:3000` with hot reloading disabled for faster development.
 
+### Content Workflow
+
+`raw/resume.md` is the source of truth for your resume content. To regenerate `index.html` from the markdown:
+
+```bash
+npm run generate:resume
+```
+
+The build pipeline also regenerates `index.html` automatically.
+
 ### Production
 
 Serve the production version:

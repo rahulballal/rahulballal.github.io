@@ -6,7 +6,8 @@
   "scripts": {
     "start": "http-server . -p 3000 -o",
     "dev": "http-server . -p 3000 -o -c-1",
-    "build": "npm run clean && npm run copy-files && npm run validate",
+    "generate:resume": "node scripts/generate-resume.js",
+    "build": "npm run clean && npm run generate:resume && npm run copy-files && npm run validate",
     "build:gh-pages": "npm run build && echo 'Ready for GitHub Pages deployment'",
     "clean": "rm -rf dist && mkdir -p dist",
     "copy-files": "cp index.html dist/ && cp *.svg dist/ && cp *.ico dist/ && cp *.webmanifest dist/ && if [ -f profile-photo.jpeg ]; then cp profile-photo.jpeg dist/; fi",
@@ -25,9 +26,11 @@
   "author": "Rahul Ballal <rahulballal@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^14.1.1",
+    "ejs": "^5.0.1",
+    "html-validate": "^8.7.4",
     "htmlhint": "^1.1.4",
-    "html-validate": "^8.7.4"
+    "http-server": "^14.1.1",
+    "marked": "^12.0.2"
   },
   "repository": {
     "type": "git",
