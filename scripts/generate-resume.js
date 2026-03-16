@@ -177,16 +177,16 @@ function parseMarkdown(markdown) {
       else if (currentSection.type === 'employment' && currentJob) {
         // Parse job company/location/dates
         const text = token.text;
-        const lines = text.split('<br>');
+        const lines = text.split('\n');
         if (lines.length >= 2) {
-          // First line: company • location
+          // First line: company • location (raw markdown format: **company** • location)
           const companyLine = lines[0].match(/\*\*([^*]+)\*\*\s*•\s*(.+)/);
           if (companyLine) {
             currentJob.company = companyLine[1];
-            currentJob.location = companyLine[2];
+            currentJob.location = companyLine[2].trim();
           }
-          // Second line: dates (italic)
-          const datesMatch = lines[1].match(/<em>([^<]+)<\/em>/);
+          // Second line: dates (raw markdown format: *dates*)
+          const datesMatch = lines[1].match(/\*([^*]+)\*/);
           if (datesMatch) {
             currentJob.dates = datesMatch[1];
           }
