@@ -5,11 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= name %> - <%= title %></title>
   <meta name="description" content="Resume of <%= name %> - engineering leadership, architecture, and technical expertise.">
+  <link rel="canonical" href="https://rahulballal.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="<%= name %> - <%= title %>">
+  <meta property="og:description" content="Resume of <%= name %> - engineering leadership, architecture, and technical expertise.">
+  <meta property="og:url" content="https://rahulballal.github.io/">
+  <meta property="og:image" content="https://rahulballal.github.io/profile-photo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= name %> - <%= title %>">
+  <meta name="twitter:description" content="Resume of <%= name %> - engineering leadership, architecture, and technical expertise.">
+  <meta name="twitter:image" content="https://rahulballal.github.io/profile-photo.jpeg">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
   <link rel="manifest" href="/site.webmanifest">
   <script src="https://unpkg.com/feather-icons"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": <%- JSON.stringify(name) %>,
+      "jobTitle": <%- JSON.stringify(title) %>,
+      "url": "https://rahulballal.github.io/",
+      "image": "https://rahulballal.github.io/profile-photo.jpeg",
+      "sameAs": [
+        <% personalInfo.filter(info => info.label === 'LinkedIn' && info.link).forEach((info, index, list) => { -%>
+        <%- JSON.stringify(info.link) %><% if (index < list.length - 1) { -%>,<% } -%>
+        <% }) -%>
+      ]
+    }
+  </script>
   <style>
     :root { --primary: #1890ff; --primary-hover: #40a9ff; --primary-dark: #096dd9; --text-primary: #000000f0; --text-secondary: #0000008f; --border: #d9d9d9; --border-light: #f0f0f0; --bg-primary: #ffffff; --bg-secondary: #fafafa; --bg-tertiary: #f5f5f5; --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02); --shadow-md: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05); }
     * { box-sizing: border-box; }
@@ -68,7 +93,7 @@
 
     <!-- Content Sections -->
     <div class="content">
-      <% sections.filter(s => s.type !== 'simple' || s.content.trim()).forEach(section => { -%>
+      <% sections.filter(s => s.type !== 'simple' || (s.contentParagraphs && s.contentParagraphs.length > 0)).forEach(section => { -%>
         <div class="content-section">
           <h2>
             <i data-feather="<%= section.icon %>" class="section-icon"></i>
@@ -76,7 +101,9 @@
           </h2>
 
           <% if (section.type === 'simple') { -%>
-<%- section.content.trim() %>
+            <% section.contentParagraphs.forEach(paragraph => { -%>
+              <p><%= paragraph %></p>
+            <% }) -%>
           <% } else if (section.type === 'skills') { -%>
             <% section.subsections.forEach(subsection => { -%>
               <h4><%= subsection.title %></h4>

@@ -7,15 +7,18 @@
     "start": "http-server . -p 3000 -o",
     "dev": "http-server . -p 3000 -o -c-1",
     "generate:resume": "node scripts/generate-resume.js",
-    "build": "npm run clean && npm run generate:resume && npm run copy-files && npm run validate",
-    "build:gh-pages": "npm run build && echo 'Ready for GitHub Pages deployment'",
+    "build": "pnpm run clean && node scripts/generate-resume.js && pnpm run copy-files && pnpm run validate:all && node scripts/check-links.js",
+    "build:gh-pages": "pnpm run build && echo 'Ready for GitHub Pages deployment'",
     "clean": "rm -rf dist && mkdir -p dist",
     "copy-files": "cp index.html dist/ && cp *.svg dist/ && cp *.ico dist/ && cp *.webmanifest dist/ && if [ -f profile-photo.jpeg ]; then cp profile-photo.jpeg dist/; fi",
     "serve": "http-server . -p 8080",
     "serve:dist": "http-server dist -p 8080 -o",
     "lint:html": "htmlhint index.html",
     "validate": "html-validate index.html",
-    "deploy-preview": "npm run build && npm run serve:dist"
+    "validate:all": "html-validate index.html dist/index.html",
+    "check:links": "node scripts/check-links.js",
+    "test": "node --test",
+    "deploy-preview": "pnpm run build && pnpm run serve:dist"
   },
   "keywords": [
     "resume",

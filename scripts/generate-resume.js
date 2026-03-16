@@ -34,6 +34,46 @@ function parseMarkdown(markdown) {
   let currentSection = null;
   let currentJob = null;
   let currentPodcast = null;
+
+  function flushCurrentJob() {
+    if (!currentSection || currentSection.type !== 'employment' || !currentJob) {
+      return;
+    }
+
+    if (
+      currentJob.title ||
+      currentJob.company ||
+      currentJob.location ||
+      currentJob.dates ||
+      currentJob.responsibilities.length > 0
+    ) {
+      currentSection.jobs.push(currentJob);
+    }
+
+    currentJob = null;
+  }
+
+  function flushCurrentPodcast() {
+    if (!currentSection || currentSection.type !== 'podcasts' || !currentPodcast) {
+      return;
+    }
+
+    if (
+      currentPodcast.name ||
+      currentPodcast.role ||
+      currentPodcast.description ||
+      currentPodcast.episodes.length > 0
+    ) {
+      currentSection.podcasts.push(currentPodcast);
+    }
+
+    currentPodcast = null;
+  }
+
+  function flushSectionState() {
+    flushCurrentJob();
+    flushCurrentPodcast();
+  }
   
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
@@ -54,6 +94,8 @@ function parseMarkdown(markdown) {
     // Parse H3 (Section Headers)
     else if (token.type === 'heading' && token.depth === 3) {
       const sectionTitle = token.text;
+
+      flushSectionState();
       
       // Save previous section
       if (currentSection) {
@@ -73,7 +115,7 @@ function parseMarkdown(markdown) {
         title: sectionTitle,
         icon: SECTION_ICONS[sectionTitle] || 'file-text',
         type: sectionType,
-        content: '',
+        contentParagraphs: [],
         subsections: [],
         jobs: [],
         podcasts: [],
@@ -138,6 +180,7 @@ function parseMarkdown(markdown) {
         }
       }
       else if (currentSection.type === 'employment') {
+        flushCurrentJob();
         // Start a new job
         currentJob = {
           title: h4Text,
@@ -148,6 +191,7 @@ function parseMarkdown(markdown) {
         };
       }
       else if (currentSection.type === 'podcasts') {
+        flushCurrentPodcast();
         // Start a new podcast
         currentPodcast = {
           name: h4Text,
@@ -172,7 +216,7 @@ function parseMarkdown(markdown) {
       if (!currentSection) continue;
       
       if (currentSection.type === 'simple') {
-        currentSection.content += `<p>${token.text}</p>\n`;
+        currentSection.contentParagraphs.push(token.text);
       }
       else if (currentSection.type === 'employment' && currentJob) {
         // Parse job company/location/dates
@@ -194,11 +238,14 @@ function parseMarkdown(markdown) {
       }
       else if (currentSection.type === 'podcasts' && currentPodcast) {
         const text = token.text;
-        // Check if it's the role (contains <strong>)
-        if (text.includes('<strong>')) {
-          const roleMatch = text.match(/<strong>([^<]+)<\/strong>/);
-          if (roleMatch) {
-            currentPodcast.role = roleMatch[1];
+        // Check if it's the role (strong text in either HTML or markdown form)
+        if (text.includes('<strong>') || /^\*\*.+\*\*$/.test(text.trim())) {
+          const htmlRoleMatch = text.match(/<strong>([^<]+)<\/strong>/);
+          const markdownRoleMatch = text.match(/^\*\*([^*]+)\*\*$/);
+          if (htmlRoleMatch) {
+            currentPodcast.role = htmlRoleMatch[1].trim();
+          } else if (markdownRoleMatch) {
+            currentPodcast.role = markdownRoleMatch[1].trim();
           }
         }
         // Check if it's "Featured Episodes:"
@@ -240,8 +287,7 @@ function parseMarkdown(markdown) {
       if (currentSection.type === 'employment' && currentJob) {
         // Job responsibilities
         currentJob.responsibilities = token.items.map(item => item.text);
-        currentSection.jobs.push(currentJob);
-        currentJob = null;
+        flushCurrentJob();
       }
       else if (currentSection.type === 'podcasts' && currentPodcast) {
         // Podcast episodes
@@ -266,8 +312,7 @@ function parseMarkdown(markdown) {
           }
           return { title: text, link: '', description: '' };
         });
-        currentSection.podcasts.push(currentPodcast);
-        currentPodcast = null;
+        flushCurrentPodcast();
       }
       else if (currentSection.type === 'certifications') {
         // Certifications
@@ -288,10 +333,11 @@ function parseMarkdown(markdown) {
   }
   
   // Add last section
+  flushSectionState();
   if (currentSection) {
     data.sections.push(currentSection);
   }
-  
+
   return data;
 }
 
