@@ -12,9 +12,11 @@ const { title, description, canonicalUrl } = Astro.props;
 
 <BaseLayout title={title} description={description} canonicalUrl={canonicalUrl}>
   <nav class="blog-nav">
-    <a href="/" class="blog-nav-link">&larr; Resume</a>
+    <a href="/" class="blog-nav-link">Home</a>
     <span class="blog-nav-sep">|</span>
-    <a href="/blog" class="blog-nav-link">All Posts</a>
+    <a href="/about" class="blog-nav-link">About</a>
+    <span class="blog-nav-sep">|</span>
+    <a href="/blog" class="blog-nav-link">Blog</a>
   </nav>
   <slot />
 </BaseLayout>

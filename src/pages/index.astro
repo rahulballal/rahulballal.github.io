@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/base.astro';
-import Icon from '../components/Icon.astro';
 import { parseResume } from '../lib/parse-resume';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,118 +7,33 @@ import path from 'node:path';
 const resumePath = path.resolve('raw/resume.md');
 const markdown = fs.readFileSync(resumePath, 'utf-8');
 const data = parseResume(markdown);
-const fullTitle = `${data.name} - ${data.title}`;
 ---
 
-<Layout title={fullTitle}>
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-photo"><img src="/profile-photo.jpeg" alt={data.name} /></div>
-    <h1>{data.name}</h1>
-    <h2>{data.title}</h2>
-    <div class="hero-meta">
-      {
-        data.personalInfo.map((info, index) => (
-          <>
-            <span>
-              <strong>{info.label}:</strong>{' '}
-              {info.link ? <a href={info.link}>{info.value}</a> : info.value}
-            </span>
-            {index < data.personalInfo.length - 1 && <span class="hero-separator">•</span>}
-          </>
-        ))
-      }
+<Layout
+  title={data.name}
+  description="Choose between Rahul Ballal's about page and blog."
+  canonicalUrl="https://rahulballal.github.io/"
+>
+  <section class="landing">
+    <div class="hero">
+      <div class="hero-photo"><img src="/profile-photo.jpeg" alt={data.name} /></div>
+      <h1>{data.name}</h1>
+      <h2>{data.title}</h2>
+      <p class="landing-intro">Choose where you'd like to go next.</p>
     </div>
-  </div>
 
-  <!-- Content Sections -->
-  <div class="content">
-    {
-      data.sections.map((section) => (
-        <div class="content-section">
-          <h2>
-            <Icon name={section.icon as any} class="section-icon" />
-            {section.title}
-          </h2>
+    <nav class="landing-grid" aria-label="Primary navigation">
+      <a class="landing-card" href="/about">
+        <span class="landing-card-kicker">About</span>
+        <h3>Resume and background</h3>
+        <p>Professional experience, skills, and career history.</p>
+      </a>
 
-          <!-- Simple type: About, etc. -->
-          {section.type === 'simple' && section.contentParagraphs.map((p) => (
-            <p>{p}</p>
-          ))}
-
-          <!-- Skills -->
-          {section.type === 'skills' && section.subsections.map((subsection) => (
-            <>
-              <h4>{subsection.title}</h4>
-              <div class="skill-tags">
-                {subsection.items.map((skill) => (
-                  <div class="skill-tag">{skill}</div>
-                ))}
-              </div>
-            </>
-          ))}
-
-          <!-- Employment -->
-          {section.type === 'employment' && section.jobs.map((job) => (
-            <div class="employment-item">
-              <h4>{job.title}</h4>
-              <p><strong>{job.company}</strong> • {job.location}<br /><em>{job.dates}</em></p>
-              {job.responsibilities.length > 0 && (
-                <ul>
-                  {job.responsibilities.map((resp) => (
-                    <li set:html={resp} />
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-
-          <!-- Podcasts -->
-          {section.type === 'podcasts' && section.podcasts.map((podcast) => (
-            <>
-              <h4>{podcast.name}</h4>
-              <p><strong>{podcast.role}</strong></p>
-              <p>{podcast.description}</p>
-              {podcast.episodes.length > 0 && (
-                <>
-                  <p><strong>Featured Episodes:</strong></p>
-                  <ul>
-                    {podcast.episodes.map((ep) => (
-                      <li><a href={ep.link}>{ep.title}</a> - {ep.description}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </>
-          ))}
-
-          <!-- Education -->
-          {section.type === 'education' && (section.items as any[]).map((item: any) => (
-            <>
-              <h4>{item.degree}</h4>
-              <p><strong>{item.institution}</strong> • {item.location}<br /><em>{item.dates}</em></p>
-            </>
-          ))}
-
-          <!-- Certifications -->
-          {section.type === 'certifications' && (
-            <ul>
-              {(section.items as any[]).map((item: any) => (
-                <li><strong>{item.name}</strong> ({item.date})</li>
-              ))}
-            </ul>
-          )}
-
-          <!-- Languages -->
-          {section.type === 'languages' && (
-            <ul>
-              {section.items.map((lang: string) => (
-                <li>{lang}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))
-    }
-  </div>
+      <a class="landing-card" href="/blog">
+        <span class="landing-card-kicker">Blog</span>
+        <h3>Writing and ideas</h3>
+        <p>Notes on engineering leadership, architecture, and software.</p>
+      </a>
+    </nav>
+  </section>
 </Layout>

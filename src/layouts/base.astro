@@ -8,6 +8,7 @@ export interface Props {
 }
 
 const { title, description, canonicalUrl } = Astro.props;
+const defaultDescription = "Rahul Ballal's site featuring an about page and blog.";
 ---
 
 <!DOCTYPE html>
@@ -16,16 +17,16 @@ const { title, description, canonicalUrl } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <meta name="description" content={description || defaultDescription} />
     <link rel="canonical" href={canonicalUrl || 'https://rahulballal.github.io/'} />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <meta property="og:description" content={description || defaultDescription} />
     <meta property="og:url" content={canonicalUrl || 'https://rahulballal.github.io/'} />
     <meta property="og:image" content="https://rahulballal.github.io/profile-photo.jpeg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <meta name="twitter:description" content={description || defaultDescription} />
     <meta name="twitter:image" content="https://rahulballal.github.io/profile-photo.jpeg" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
