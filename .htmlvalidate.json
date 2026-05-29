@@ -1,0 +1,16 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-inline-style": ["error", {
+      "allowedProperties": [
+        "display",
+        "line-height",
+        "max-width",
+        "stroke-dasharray",
+        "stroke-width",
+        "text-align",
+        "white-space"
+      ]
+    }]
+  }
+}

@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/blog.astro';
+import { loadAllPosts } from '../../lib/load-blog-posts';
+
+const posts = loadAllPosts();
+const pageTitle = 'Blog - Rahul Ballal';
+---
+
+<Layout title={pageTitle} description="Articles on engineering leadership, architecture, and software development.">
+  <h1 class="blog-page-title">Blog</h1>
+
+  {posts.length === 0 && (
+    <p class="blog-empty">No posts yet. Check back soon!</p>
+  )}
+
+  {
+    posts.map((post) => (
+      <article class="blog-card">
+        <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
+        <div class="blog-meta">
+          <time datetime={post.pubDate.toISOString()}>
+            {post.pubDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        </div>
+        <p class="blog-description">{post.description}</p>
+        {post.tags.length > 0 && (
+          <div class="blog-tags">
+            {post.tags.map((tag) => (
+              <span class="blog-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </article>
+    ))
+  }
+</Layout>

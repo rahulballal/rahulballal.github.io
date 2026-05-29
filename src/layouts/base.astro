@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, canonicalUrl } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <link rel="canonical" href={canonicalUrl || 'https://rahulballal.github.io/'} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <meta property="og:url" content={canonicalUrl || 'https://rahulballal.github.io/'} />
+    <meta property="og:image" content="https://rahulballal.github.io/profile-photo.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description || `Resume of Rahul Ballal - engineering leadership, architecture, and technical expertise.`} />
+    <meta name="twitter:image" content="https://rahulballal.github.io/profile-photo.jpeg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Rahul Ballal",
+      jobTitle: "Engineering Leadership & Architecture",
+      url: "https://rahulballal.github.io/",
+      image: "https://rahulballal.github.io/profile-photo.jpeg",
+      sameAs: ["https://linkedin.com/in/meet-rahul-ballal"],
+    })}>
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <slot />
+    </div>
+  </body>
+</html>

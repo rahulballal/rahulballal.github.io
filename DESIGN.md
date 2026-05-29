@@ -71,16 +71,12 @@ Major sections (About, Skills, Employment History, Education, Certifications) us
 | 480px–767px | Mobile | Single-column, condensed spacing, readable text |
 | Print | Any | Profile photo hidden, background colors removed, optimized for paper |
 
-## Build & Generation
+## Build Pipeline
 
-The site is auto-generated via `scripts/generate-resume.js`:
-- Reads `raw/resume.md` (markdown source of truth)
-- Uses `marked` library to parse markdown
-- Wraps HTML in CSS classes for enhanced styling
-- Includes embedded CSS for zero-dependency deployment
-- Produces a single, self-contained `index.html`
+The site is built with **Astro** (static site generator). Resume content is parsed from `raw/resume.md` via a custom markdown parser, blog posts live in `src/content/blog/`, and Mermaid diagrams render as inline SVGs at build time (zero JS at runtime).
 
-Run `npm run build` to regenerate the site and validate HTML.
+Run `pnpm run build` to build the site and validate HTML.
+
 
 ## Component Styles
 
@@ -147,18 +143,10 @@ The design scales gracefully across breakpoints:
 ## Maintenance & Updates
 
 When updating the design:
-1. Modify CSS custom properties in `:root` for color/spacing changes
-2. Edit CSS rules in the `<style>` block in `scripts/generate-resume.js`
-3. Update icon mappings in the JavaScript section if adding new section types
-4. Test on multiple devices: `npm run dev` + browser dev tools
+1. Modify CSS custom properties in `src/styles/global.css` for color/spacing changes
+2. Edit Astro layouts in `src/layouts/` for structural changes
+3. Update icon mappings in `src/components/Icon.astro` if adding new section types
+4. Test on multiple devices: `pnpm run dev` + browser dev tools
 5. Test print preview (Cmd+P or Ctrl+P) before committing
-6. Run `npm run build && npm run validate` to ensure no regressions
+6. Run `pnpm run build` to ensure no regressions
 7. Update this file if design philosophy or major structure changes
-8. Keep ANTD design principles in mind: clean, professional, accessible, refined
-
-## Related Files
-
-- `README.md` — Setup, build instructions, tech stack
-- `AGENTS.md` — CI/CD workflows and assistant agent templates
-- `scripts/generate-resume.js` — HTML generation logic and embedded CSS
-- `raw/resume.md` — Markdown source content (single source of truth)

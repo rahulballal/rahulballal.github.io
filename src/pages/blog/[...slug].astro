@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/blog.astro';
+import { loadAllPosts, loadPost } from '../../lib/load-blog-posts';
+import { renderMarkdown } from '../../lib/render-markdown';
+
+export function getStaticPaths() {
+  const posts = loadAllPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { slug: post.slug },
+  }));
+}
+
+type Props = {
+  slug: string;
+};
+
+const { slug } = Astro.props;
+const post = loadPost(`${slug}.md`);
+let renderedHtml = '';
+if (post) {
+  renderedHtml = await renderMarkdown(post.body);
+}
+---
+
+{post && (
+  <Layout
+    title={`${post.title} - Rahul Ballal`}
+    description={post.description}
+    canonicalUrl={`https://rahulballal.github.io/blog/${slug}/`}
+  >
+    <article>
+      <header class="post-header">
+        <h1>{post.title}</h1>
+        <div class="blog-meta">
+          <time datetime={post.pubDate.toISOString()}>
+            Published {post.pubDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+          {post.tags.length > 0 && (
+<div class="blog-tags blog-tags-top">
+              {post.tags.map((tag) => (
+                <span class="blog-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </header>
+
+      <div class="post-body" set:html={renderedHtml} />
+    </article>
+  </Layout>
+)}
